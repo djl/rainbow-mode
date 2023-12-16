@@ -76,6 +76,10 @@
   "Font-lock keywords to add for HTML colors.")
 (make-variable-buffer-local 'rainbow-html-colors-font-lock-keywords)
 
+;; rainbow-mode overlay priority
+(defvar rainbow-mode-overlay-priority 5000
+  "The priorty the rainbow-mode overlay should have.")
+
 (defcustom rainbow-html-colors-alist
   '(("AliceBlue" . "#F0F8FF")
     ("AntiqueWhite" . "#FAEBD7")
@@ -1005,7 +1009,7 @@ background is COLOR. The foreground is computed using
                                "white" "black"))
              (:background ,color))
      'ovrainbow t
-     'priority 5000)))
+     'priority rainbow-mode-overlay-priority)))
 
 (defun rainbow-colorize-itself (&optional match)
   "Colorize a match with itself."
